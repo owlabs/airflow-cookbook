@@ -64,6 +64,11 @@ airflow_pkg = if node['airflow']['version'] > '1.8.0'
                 'airflow'
               end
 
+log 'message' do
+  message 'Airflow package name identified as ' + airflow_pkg + ' based on version requirement: ' + node['airflow']['version']
+  level :info
+end
+
 # Install Airflow
 python_package airflow_pkg do
   version node['airflow']['version']
