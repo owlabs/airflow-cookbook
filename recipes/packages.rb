@@ -57,8 +57,15 @@ dependencies_to_install.each do |value|
   end
 end
 
+# Get Airflow package name based on version
+airflow_pkg = if node['airflow']['version'] > '1.8.0'
+                'apache-airflow'
+              else
+                'airflow'
+              end
+
 # Install Airflow
-python_package 'airflow' do
+python_package airflow_pkg do
   version node['airflow']['version']
 end
 
