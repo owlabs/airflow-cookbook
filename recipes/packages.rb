@@ -72,6 +72,7 @@ node['airflow']['packages'].each do |_key, value|
     python_package package_to_install.to_s do
       action :install
       version version_to_install.to_s
+      timeout node['python_package']['install_timeout']
     end
   end
 end

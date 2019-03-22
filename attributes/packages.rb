@@ -111,3 +111,5 @@ default['airflow']['dependencies'] =
       kerberos: [{ name: 'cyrus-sasl-devel', version: '' }]
     }
   }
+
+default['python_package']['install_timeout'] = 900
